@@ -36,6 +36,10 @@
             font-family: inherit;
             font-size: 1.1em;
         }
+        .ascii-art {
+            font-size: 0.75em; /* Adjust this value to make the font smaller or larger */
+            line-height: 1.1em; /* Line height can also be adjusted for spacing */
+        }
     </style>
 </head>
 <body>
@@ -150,7 +154,7 @@ Skills: Teaching, Communication, Patience, Documentation<br>`,
 
     // Display ASCII art when the page loads
     window.onload = function() {
-        terminalOutput.innerHTML += `<pre class="line">${boarHeadASCII}</pre>`;
+        terminalOutput.innerHTML += `<pre class="line ascii-art">${boarHeadASCII}</pre>`;
         terminalOutput.innerHTML += `<div class="line">Type "help" to see available commands.</div>`;
     };
 
@@ -161,7 +165,7 @@ Skills: Teaching, Communication, Patience, Documentation<br>`,
             
             if (input === "clear") {
                 terminalOutput.innerHTML = "";
-                terminalOutput.innerHTML += `<pre class="line">${boarHeadASCII}</pre>`;
+                terminalOutput.innerHTML += `<pre class="line ascii-art">${boarHeadASCII}</pre>`;
                 terminalOutput.innerHTML += `<div class="line">Type "help" to see available commands.</div>`;
             } else {
                 terminalOutput.innerHTML += `<div class="line">${outputText}</div>`;
