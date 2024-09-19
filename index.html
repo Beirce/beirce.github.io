@@ -37,8 +37,8 @@
             font-size: 1.1em;
         }
         .ascii-art {
-            font-size: 0.5em; /* Adjust this value to make the font smaller or larger */
-            line-height: 0.7em; /* Line height can also be adjusted for spacing */
+            font-size: 0.4em; /* Adjust this value to make the font smaller or larger */
+            line-height: 0.6em; /* Line height can also be adjusted for spacing */
         }
         .hidden {
             display: none;
@@ -126,7 +126,7 @@
         if (welcomeIndex < welcomeMessage.length) {
             terminalOutput.innerHTML += welcomeMessage[welcomeIndex];
             welcomeIndex++;
-            setTimeout(typeWelcomeMessage, 100); // Adjust speed here (in milliseconds)
+            setTimeout(typeWelcomeMessage, 25); // Adjust speed here (in milliseconds)
         } else {
             // Once the welcome message is done, start displaying the ASCII art
             terminalOutput.innerHTML += `<br>`;
@@ -139,7 +139,7 @@
         if (asciiIndex < boarHeadASCII.length) {
             terminalOutput.innerHTML += `<pre class="line ascii-art">${boarHeadASCII[asciiIndex]}</pre>`;
             asciiIndex++;
-            setTimeout(typeAsciiArt, 50); // Adjust speed here (in milliseconds)
+            setTimeout(typeAsciiArt, 25); // Adjust speed here (in milliseconds)
         } else {
             // After ASCII art is fully printed, show the "Press Enter to Start" message
             terminalOutput.innerHTML += `<div class="line">Press Enter to Start</div>`;
