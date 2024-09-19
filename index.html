@@ -1,1 +1,86 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Terminal</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00FF00;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+        }
+        #terminal {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .line {
+            margin: 5px 0;
+        }
+        .input-line {
+            display: flex;
+        }
+        .input-prompt {
+            margin-right: 10px;
+        }
+        .input-field {
+            color: #00FF00;
+            background-color: black;
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+<div id="terminal">
+    <div class="line">Welcome to [Your Name]'s Cybersecurity Portfolio!</div>
+    <div class="line">Type "help" to see available commands.</div>
+    
+    <div id="output"></div>
+    
+    <div class="input-line">
+        <span class="input-prompt">></span>
+        <input type="text" id="input" class="input-field" autofocus>
+    </div>
+</div>
+
+<script>
+    const terminalOutput = document.getElementById("output");
+    const inputField = document.getElementById("input");
+
+    const commands = {
+        "help": "Available commands: help, portfolio, resume, contact, about, projects, clear",
+        "portfolio": "Opening portfolio... [redirecting to portfolio page/link]",
+        "resume": "Displaying resume... [link to resume or popup]",
+        "contact": "You can reach me at [email@example.com] or find me on LinkedIn: [linkedin-link]",
+        "about": "I'm a cybersecurity enthusiast specializing in penetration testing and ethical hacking.",
+        "projects": "1. Project X\n2. Project Y\n3. Project Z",
+        "clear": ""
+    };
+
+    inputField.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            const input = inputField.value.trim().toLowerCase();
+            const outputText = commands[input] || `Unknown command: ${input}`;
+            
+            if (input === "clear") {
+                terminalOutput.innerHTML = "";
+            } else {
+                terminalOutput.innerHTML += `<div class="line">${outputText}</div>`;
+            }
+            
+            inputField.value = "";
+        }
+    });
+</script>
+
+</body>
+</html>
