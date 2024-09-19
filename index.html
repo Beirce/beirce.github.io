@@ -158,7 +158,8 @@
             terminalOutput.innerHTML = "";
             mainTerminal.classList.remove("hidden");
             // Display available commands at the start of the terminal
-            terminalOutput.innerHTML += `<div class="line">Available commands: help, portfolio, resume, contact, about, projects, clear</div>`;
+            terminalOutput.innerHTML += `<pre class="line ascii-art">${boarHeadASCII.join('\n')}</pre>`;
+            terminalOutput.innerHTML += `<div class="line">${currentUser}@beirce.io:~$ Type "help" to see available commands.</div>`;
             inputField.focus(); // Set focus on the input field
         } else if (event.key === "Enter") {
             handleCommand();
