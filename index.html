@@ -41,9 +41,6 @@
 <body>
 
 <div id="terminal">
-    <div class="line">Welcome to [Your Name]'s Cybersecurity Portfolio!</div>
-    <div class="line">Type "help" to see available commands.</div>
-    
     <div id="output"></div>
     
     <div class="input-line">
@@ -53,7 +50,6 @@
 </div>
 
 <script>
-
     const terminalOutput = document.getElementById("output");
     const inputField = document.getElementById("input");
 
@@ -66,28 +62,8 @@
    _______WELCOME TO JACOB'S CYBERSECURITY PORTFOLIO_______
     `;
 
-    // Display ASCII art when the page loads
-    window.onload = function() {
-        terminalOutput.innerHTML += `<pre class="line">${boarHeadASCII}</pre>`;
-    };
-
-    inputField.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            const input = inputField.value.trim().toLowerCase();
-            const outputText = commands[input] || `Unknown command: ${input}`;
-            
-            terminalOutput.innerHTML += `<div class="line">${outputText}</div>`;
-            inputField.value = "";
-        }
-    });
-
-
-    const terminalOutput = document.getElementById("output");
-    const inputField = document.getElementById("input");
-
     const commands = {
         "help": "Available commands: help, portfolio, resume, contact, about, projects, clear",
-
         "resume": `Jacob D. Peirce<br>
 Email: jdpeirce@proton.me | Phone: 901-304-5384 | Location: Memphis, TN<br><br>
 ---ACADEMICS AND CERTIFICATIONS---<br>
@@ -120,15 +96,16 @@ Computer Science & Math Tutor | University of Memphis | Aug 2022 - Present<br>
 - Helped students achieve better grades in challenging Computer Science and Math classes.<br>
 Classes Taught: Algorithms, OOP, Data Structures, Python Programming, Calculus, Discrete Math<br>
 Skills: Teaching, Communication, Patience, Documentation<br>`,
-
-        "contact": "You can reach me at [email@example.com] or find me on LinkedIn: [linkedin-link]",
-
+        "contact": "You can reach me at jdpeirce@proton.me or find me on LinkedIn.",
         "about": "I'm a cybersecurity enthusiast specializing in penetration testing and ethical hacking.",
-
         "projects": "1. Project X\n2. Project Y\n3. Project Z",
-
         "clear": ""
+    };
 
+    // Display ASCII art when the page loads
+    window.onload = function() {
+        terminalOutput.innerHTML += `<pre class="line">${boarHeadASCII}</pre>`;
+        terminalOutput.innerHTML += `<div class="line">Type "help" to see available commands.</div>`;
     };
 
     inputField.addEventListener("keydown", function(event) {
@@ -138,6 +115,8 @@ Skills: Teaching, Communication, Patience, Documentation<br>`,
             
             if (input === "clear") {
                 terminalOutput.innerHTML = "";
+                terminalOutput.innerHTML += `<pre class="line">${boarHeadASCII}</pre>`;
+                terminalOutput.innerHTML += `<div class="line">Type "help" to see available commands.</div>`;
             } else {
                 terminalOutput.innerHTML += `<div class="line">${outputText}</div>`;
             }
