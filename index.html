@@ -38,7 +38,7 @@
         }
         .ascii-art {
             font-size: 0.4em; /* Adjust this value to make the font smaller or larger */
-            line-height: 0.4em; /* Line height can also be adjusted for spacing */
+            line-height: 0.6em; /* Line height can also be adjusted for spacing */
         }
         .hidden {
             display: none;
@@ -117,7 +117,7 @@
         "                                                                                                                                                         "
     ];
 
-    const welcomeMessage = "Welcome to Jacob's Cybersecurity Portfolio!";
+    const welcomeMessage = "Welcome to the Boar terminal!";
     let welcomeIndex = 0;
     let asciiIndex = 0;
 
@@ -157,6 +157,8 @@
             // Clear the initial screen and show the main terminal
             terminalOutput.innerHTML = "";
             mainTerminal.classList.remove("hidden");
+            // Display available commands at the start of the terminal
+            terminalOutput.innerHTML += `<div class="line">Available commands: help, portfolio, resume, contact, about, projects, clear</div>`;
             inputField.focus(); // Set focus on the input field
         } else if (event.key === "Enter") {
             handleCommand();
