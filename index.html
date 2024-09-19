@@ -125,7 +125,7 @@
         if (welcomeIndex < welcomeMessage.length) {
             terminalOutput.innerHTML += welcomeMessage[welcomeIndex];
             welcomeIndex++;
-            setTimeout(typeWelcomeMessage, 100); // Adjust speed here (in milliseconds)
+            setTimeout(typeWelcomeMessage, 50); // Adjust speed here (in milliseconds)
         } else {
             // After the welcome message, show the ASCII art and the "Press Enter" message
             terminalOutput.innerHTML += `<br><pre class="line ascii-art">${boarHeadASCII}</pre>`;
