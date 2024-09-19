@@ -53,6 +53,35 @@
 </div>
 
 <script>
+
+    const terminalOutput = document.getElementById("output");
+    const inputField = document.getElementById("input");
+
+    // Boar Head ASCII Art and Welcome Message
+    const boarHeadASCII = `
+      \\    /\\
+       )  ( ')
+      (  /  )
+       \\(__)|
+   _______WELCOME TO JACOB'S CYBERSECURITY PORTFOLIO_______
+    `;
+
+    // Display ASCII art when the page loads
+    window.onload = function() {
+        terminalOutput.innerHTML += `<pre class="line">${boarHeadASCII}</pre>`;
+    };
+
+    inputField.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            const input = inputField.value.trim().toLowerCase();
+            const outputText = commands[input] || `Unknown command: ${input}`;
+            
+            terminalOutput.innerHTML += `<div class="line">${outputText}</div>`;
+            inputField.value = "";
+        }
+    });
+
+
     const terminalOutput = document.getElementById("output");
     const inputField = document.getElementById("input");
 
